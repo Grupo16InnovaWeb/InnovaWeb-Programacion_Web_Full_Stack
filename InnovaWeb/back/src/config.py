@@ -1,5 +1,5 @@
 DB_USER = "innoweb_user"
-DB_PASSWORD = ""
+DB_PASSWORD = "InnovaWeb2024!"
 DB_HOST = "127.0.0.1"
 DB_PORT = 3306
 DB_NAME = "innoweb"
