@@ -1,1 +1,13 @@
+// Front/js/header-scroll.js
+(function(){
+  const header = document.querySelector('.site-header');
+  if(!header) return;
+  const scrolldist = 20;
+  const onScroll = () => {
+    if(window.scrollY > scrolldist) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
 
