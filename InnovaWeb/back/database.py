@@ -4,8 +4,8 @@ class Database:
     def __init__(self):
         self.host = 'localhost'
         self.user = 'root'
-        self.password = 'InnovaWeb2024!'
-        self.database = 'sistema_usuarios3'
+        self.password = ''
+        self.database = 'sistema_usuarios'
         self.connection = None
 
     def conectar(self):

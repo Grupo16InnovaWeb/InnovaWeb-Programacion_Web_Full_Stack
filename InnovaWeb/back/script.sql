@@ -1,7 +1,6 @@
-
 -- Crear base de datos
-CREATE DATABASE IF NOT EXISTS sistema_usuarios3;
-USE sistema_usuarios3;
+CREATE DATABASE IF NOT EXISTS sistema_usuarios;
+USE sistema_usuarios;
 
 -- Tabla de usuarios (existente)
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -16,7 +15,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 CREATE TABLE IF NOT EXISTS categorias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(200),
+    descripcion TEXT,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -24,7 +23,7 @@ CREATE TABLE IF NOT EXISTS categorias (
 CREATE TABLE IF NOT EXISTS productos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(200) NOT NULL,
-    descripcion VARCHAR(200),
+    descripcion TEXT,
     precio DECIMAL(10,2) NOT NULL,
     stock INT NOT NULL DEFAULT 0,
     categoria_id INT,
@@ -42,20 +41,18 @@ VALUES
 ('usuario1', 'clave123', 'usuario'),
 ('usuario2', 'clave123', 'usuario');
 
+-- Insertar categorías de tecnología
+INSERT INTO categorias (nombre, descripcion) VALUES
+('Laptops', 'Computadoras portátiles y notebooks'),
+('Smartphones', 'Teléfonos inteligentes y accesorios'),
+('Tablets', 'Tablets y dispositivos táctiles'),
+('Periféricos', 'Teclados, mouse, monitores'),
+('Componentes', 'Hardware interno para PC');
 
--- Insertar categorías con IDs fijos
-INSERT INTO categorias (id, nombre, descripcion) VALUES
-(1, 'Laptops', 'Computadoras portátiles y notebooks'),
-(2, 'Smartphones', 'Teléfonos inteligentes y accesorios'),
-(3, 'Tablets', 'Tablets y dispositivos táctiles'),
-(4, 'Periféricos', 'Teclados, mouse, monitores'),
-(5, 'Componentes', 'Hardware interno para PC');
-
--- Reinsertar productos con los IDs correctos
+-- Insertar productos de ejemplo
 INSERT INTO productos (nombre, descripcion, precio, stock, categoria_id, usuario_creador_id) VALUES
 ('Laptop Dell XPS 13', 'Laptop ultrabook con procesador Intel i7, 16GB RAM, 512GB SSD', 1299.99, 15, 1, 1),
 ('iPhone 15 Pro', 'Smartphone Apple con cámara triple 48MP, 256GB almacenamiento', 1199.99, 25, 2, 1),
 ('Samsung Galaxy Tab S9', 'Tablet Android con S-Pen incluido, 128GB almacenamiento', 799.99, 10, 3, 1),
 ('Teclado Mecánico Razer', 'Teclado gaming mecánico switches verde RGB', 149.99, 30, 4, 1),
 ('Mouse Logitech MX Master', 'Mouse ergonómico para productividad', 99.99, 40, 4, 1);
-
